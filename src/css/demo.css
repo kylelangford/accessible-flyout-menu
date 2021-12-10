@@ -1,0 +1,30 @@
+.wrapper {
+  display: block;
+  margin: 0 auto;
+  max-width: 640px;
+  width: 88%; }
+
+.content p {
+  font-size: 21px;
+  line-height: 1.6;
+  margin-bottom: 10vh; }
+
+.site-header {
+  position: relative;
+  border-bottom: 1px solid;
+  padding: 30px; }
+  @media only screen and (min-width: 960px) {
+    .site-header {
+      padding: 20px; } }
+  .site-header > .inner {
+    display: flex;
+    align-items: center;
+    width: 100%; }
+
+.site-name {
+  line-height: 1; }
+
+.visually-hidden {
+  display: none; }
+
+/*# sourceMappingURL=demo.css.map */

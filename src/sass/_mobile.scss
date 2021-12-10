@@ -1,0 +1,233 @@
+/* 
+Mobile Menu and Triggers
+========================================================================== */
+
+.mobile-nav-container {
+	position: absolute;
+	overflow: hidden;
+	z-index: -999;
+	height: 0;
+	width: 100vw;
+	transition: background 0.25s ease-in;
+	background: rgba(0, 0, 0, 0);
+}
+
+div.mobile-nav {
+	margin-top: 110px;
+	padding: 3rem 2rem 0;
+
+	.menu--main {
+		.menu {
+			.menu-item {
+				transition: opacity 0.25s ease-out;
+			}
+			.menu {
+				transform: translateX(150%);
+				transition: all 0.5s ease-out 0.25s;
+				opacity: 0.5s;
+				.menu-item {
+					opacity: 0;
+				}
+			}
+		}
+		&.navigation--open-flyout {
+			.menu {
+				& > .menu-item {
+					opacity: 0;
+				}
+				.menu-item--expanded {
+					opacity: 1;
+				}
+				.menu {
+					.menu-item {
+						opacity: 1;
+					}
+				}
+			}
+			.menu-item--open {
+				.menu {
+					transform: translateX(0);
+					opacity: 1;
+				}
+			}
+
+			& + .menu--plansite-footer {
+				display: none;
+			}
+		}
+	}
+
+	/* Main Navigation */
+	.menu--main {
+		.menu {
+			text-align: right;
+			position: relative;
+			overflow: hidden;
+
+			.menu {
+				a {
+					display: inline-block;
+					font-size: 24px;
+				}
+			}
+
+			.menu-item {
+				margin-bottom: 1.5rem;
+			}
+
+			a {
+				// font-family: $base-font-family;
+				font-size: 36px;
+				font-weight: 800;
+				color: white;
+			}
+
+			.menu {
+				position: absolute;
+				top: 0;
+				right: 0;
+				// transform: translateX(150%);
+				// transition: all 0.5s ease-out 0.25s;
+				// opacity: 0.5s;
+				height: auto;
+				width: 100%;
+				display: block;
+				z-index: 999999999;
+				margin-left: 0;
+			}
+
+			.mobile-nav-back {
+				a {
+					display: inline-block;
+					font-size: 36px;
+					cursor: pointer;
+					padding-left: $base-spacing;
+					position: relative;
+					z-index: 999;
+
+					&:before {
+						content: '';
+						width: 0;
+						border: solid;
+						border-width: 0 3px 3px 0;
+						display: inline-block;
+						padding: 6px;
+						position: absolute;
+						left: 0;
+						top: calc(50% - 11px);
+						transform: rotate(-225deg);
+					}
+				}
+			}
+		}
+	}
+
+	/* Footer Navigation */
+	// .menu--plansite-footer {
+	// 	.menu {
+	// 		text-align: right;
+
+	// 		.menu-item {
+	// 			margin-bottom: 0.75rem;
+	// 		}
+
+	// 		a {
+	// 			font-family: $base-font-family;
+	// 			font-size: $h4;
+	// 			font-weight: 800;
+	// 			color: $white;
+	// 			transition: $link-transition;
+	// 		}
+	// 	}
+	// }
+
+	// .block-linkwell-client-social-links-block {
+	// 	display: block;
+	// 	text-align: right;
+	// 	.social-links {
+	// 		a {
+	// 			&:last-child {
+	// 				margin-right: 0;
+	// 			}
+	// 		}
+	// 	}
+	// }
+}
+
+/* Flyout */
+@media only screen and (max-width: $large-screen) {
+	.menu--is-open {
+		overflow: hidden;
+		height: 100vh;
+		width: 100vw;
+
+		.site-header {
+			z-index: 999999;
+		}
+
+		.mobile-nav-container {
+			background-color: $primary-color;
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100vw;
+			height: 100vh;
+			height: 100%;
+			z-index: 99999;
+			overflow-y: scroll;
+		}
+	}
+}
+
+/* Menu Button
+========================================================================== */
+.open__menu {
+	position: absolute;
+	height: 100%;
+	margin: auto;
+	top: 0;
+	bottom: 0;
+	right: 1rem;
+	width: auto;
+	line-height: 12px;
+	text-align: center;
+	z-index: 999999;
+	padding: 0 1rem;
+	display: flex;
+
+	&:hover {
+		color: $primary-color;
+	}
+}
+
+@media only screen and (min-width: $large-screen) {
+	.open__menu {
+		display: none;
+	}
+}
+
+.menu-button {
+	// @include hardware(true);
+	background-color: transparent;
+	min-height: 25px;
+	cursor: pointer;
+	padding: 0px;
+	margin: 0px;
+	border-width: initial;
+	border-style: none;
+	border-color: initial;
+	border-image: initial;
+	outline: none;
+	z-index: layer('top');
+	position: relative;
+}
+
+/* Background tint
+========================================================================== */
+.bg--gel {
+	position: absolute;
+	top: 0;
+	left: 100%;
+	opacity: 0;
+	display: none;
+}

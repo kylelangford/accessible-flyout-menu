@@ -1,0 +1,34 @@
+.hamburger {
+	display: inline-block;
+
+	.ingredient {
+		fill: $primary-color;
+		display: block;
+		transform-origin: 50% 50%;
+		transition: transform 0.3s ease-out, color 0.3s ease-out;
+	}
+	.bun-top {
+		transform: rotate(0deg) translateY(0px);
+	}
+	.meat-middle {
+		transform: scaleX(1);
+	}
+	.bun-bottom {
+		transform: rotate(0deg) translateY(0px);
+	}
+
+	.is-active & {
+		.ingredient {
+			fill: darken($primary-color, 20%);
+		}
+		.bun-top {
+			transform: rotate(-45deg) translateY(10px);
+		}
+		.meat-middle {
+			transform: scaleX(0);
+		}
+		.bun-bottom {
+			transform: rotate(45deg) translateY(-10px);
+		}
+	}
+}
